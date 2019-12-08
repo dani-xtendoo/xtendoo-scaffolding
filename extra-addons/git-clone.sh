@@ -1,3 +1,5 @@
+git clone --branch 12.0 --depth 1 https://github.com/OCA/account-invoice-reporting.git
+git clone --branch 12.0 --depth 1 https://github.com/OCA/account-invoicing.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/server-ux.git
 
 git clone --branch 12.0 --depth 1 https://github.com/Openworx/backend_theme.git
@@ -6,9 +8,8 @@ git clone --branch 12.0 --depth 1 https://github.com/OCA/web.git
 
 git clone --branch 12.0 --depth 1 https://github.com/OCA/bank-payment.git
 
-git clone --branch 12.0 --depth 1 https://github.com/OCA/account-invoice-reporting.git
 
-git clone --branch 12.0 --depth 1 https://github.com/OCA/account-invoicing.git
+
 
 git clone --branch 12.0 --depth 1 https://github.com/OCA/sale-reporting.git
 
@@ -28,7 +29,7 @@ git clone --branch 12.0 --depth 1 https://github.com/OCA/community-data-files.gi
 
 git clone --branch 12.0 --depth 1 https://github.com/OCA/account-payment.git
 
-git clone --branch 12.0 --depth 1 https://github.com/OCA/account-financial-reporting.git ng
+git clone --branch 12.0 --depth 1 https://github.com/OCA/account-financial-reporting.git
 
 git clone --branch 12.0 --depth 1 https://github.com/OCA/mis-builder.git
 
