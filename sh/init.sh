@@ -1,16 +1,3 @@
-#!bin/bash
-
-#Primero preparamos los directorio de odoo
-echo ""
-echo "Preparando directorios"
-echo ""
-
-cp -r ../../scaffolding_gestool/odoo ../../
-cp -r ../../scaffolding_gestool/sh ../../
-
-chmod -R 777 ../../odoo
-chmod -R 777 ../../sh
-
 #Actualizamos repositorios de ubuntu
 
 echo "Actualizando repositorios"
