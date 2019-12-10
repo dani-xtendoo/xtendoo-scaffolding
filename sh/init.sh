@@ -13,6 +13,12 @@ apt-get upgrade -y
 
 echo 16384 > /proc/sys/fs/inotify/max_user_watches
 
+#apertura de puertos en ovh
+
+ufw allow 8069
+
+ufw allow 5050
+
 #Instalación de docker
 
 echo "Instalando docker"
