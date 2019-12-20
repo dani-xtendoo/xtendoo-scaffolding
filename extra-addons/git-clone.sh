@@ -17,5 +17,6 @@ git clone --branch 12.0 --depth 1 https://github.com/OCA/server-ux.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/stock-logistics-barcode.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/web.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/stock-logistics-reporting.git
+git clone --branch 12.0 --depth 1 https://github.com/OCA/server-tools.git
 git clone --branch master --depth 1 https://github.com/manuelcalerosolis/xtendoo.git
 
