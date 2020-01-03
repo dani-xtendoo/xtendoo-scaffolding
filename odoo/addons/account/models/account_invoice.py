@@ -904,7 +904,7 @@ class AccountInvoice(models.Model):
         elif self.date_due and (date_invoice > self.date_due):
             self.date_due = date_invoice
 
-    @api.onchange('cash_rounding_id', 'invoice_line_ids', 'tax_line_ids')
+    @api.onchange('cash_rounding_id', 'invoice_line_ids', 'tax_line_ids', 'amount_total')
     def _onchange_cash_rounding(self):
         # Drop previous cash rounding lines
         lines_to_remove = self.invoice_line_ids.filtered(lambda l: l.is_rounding_line)
@@ -1209,7 +1209,7 @@ class AccountInvoice(models.Model):
                     'account_analytic_id': tax_line.account_analytic_id.id,
                     'analytic_tag_ids': analytic_tag_ids,
                     'invoice_id': self.id,
-                    'tax_ids': [(6, 0, list(done_taxes))] if tax_line.tax_id.include_base_amount else []
+                    'tax_ids': [(6, 0, list(done_taxes))] if done_taxes and tax_line.tax_id.include_base_amount else []
                 })
             done_taxes.append(tax.id)
         return res
@@ -1363,8 +1363,9 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def invoice_validate(self):
-        for invoice in self.filtered(lambda invoice: invoice.partner_id not in invoice.message_partner_ids):
-            invoice.message_subscribe([invoice.partner_id.id])
+        for invoice in self:
+            if invoice.partner_id not in invoice.message_partner_ids:
+                invoice.message_subscribe([invoice.partner_id.id])
 
             # Auto-compute reference, if not already existing and if configured on company
             if not invoice.reference and invoice.type == 'out_invoice':
@@ -1887,12 +1888,8 @@ class AccountInvoiceLine(models.Model):
             self.price_unit = 0.0
 
         if self.product_id and self.uom_id:
-            if self.invoice_id.type in ('in_invoice', 'in_refund'):
-                price_unit = self.product_id.standard_price
-            else:
-                price_unit = self.product_id.lst_price
-            self.price_unit = self.product_id.uom_id._compute_price(price_unit, self.uom_id)
-            self._set_currency()
+            self._set_taxes()
+            self.price_unit = self.product_id.uom_id._compute_price(self.price_unit, self.uom_id)
 
             if self.product_id.uom_id.category_id.id != self.uom_id.category_id.id:
                 warning = {
