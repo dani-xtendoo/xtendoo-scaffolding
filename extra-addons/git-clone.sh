@@ -18,6 +18,7 @@ git clone --branch 12.0 --depth 1 https://github.com/OCA/web.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/stock-logistics-reporting.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/server-tools.git
 git clone --branch 12.0 --depth 1 https://github.com/OCA/stock-logistics-workflow.git
+git clone --branch 12.0 --depth 1 https://github.com/OCA/stock-logistics-warehouse.git
 
 git clone --branch 12.0 --depth 1 https://github.com/hibou-io/hibou-odoo-suite.git
 
