@@ -23,3 +23,5 @@ git clone --branch 12.0 --depth 1 https://github.com/OCA/stock-logistics-warehou
 git clone --branch 12.0 --depth 1 https://github.com/hibou-io/hibou-odoo-suite.git
 
 git clone --branch master --depth 1 https://github.com/manuelcalerosolis/xtendoo.git
+
+git clone --branch master --depth 1 https://github.com/OCA/delivery-carrier.git
